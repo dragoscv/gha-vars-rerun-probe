@@ -1,0 +1,7 @@
+name: probe
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ${{ vars.PROBE_RUNNER == 'x' && 'ubuntu-latest' || 'ubuntu-24.04' }}
+    steps:
+      - run: echo "var=${{ vars.PROBE_RUNNER }} labels=${{ runner.os }} image=$ImageOS attempt=${{ github.run_attempt }}"
